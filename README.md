@@ -21,38 +21,6 @@ PSP_2DAM/
 └── README.md
 ```
 
-## 📚 Contenidos por Unidad
-
-### Unidad 1: Programación Multiproceso
-- Creación y gestión de procesos
-- Comunicación entre procesos
-- Sincronización de procesos
-- Programación de aplicaciones multiproceso
-
-### Unidad 2: Programación Multihilo
-- Creación y gestión de hilos
-- Sincronización de hilos
-- Compartición de recursos entre hilos
-- Programación de aplicaciones multihilo
-
-### Unidad 3: Programación de Comunicaciones en Red
-- Protocolos de comunicación
-- Sockets TCP y UDP
-- Comunicación cliente-servidor
-- Serialización de objetos
-
-### Unidad 4: Generación de Servicios en Red
-- Desarrollo de servidores
-- Servicios de red multihilo
-- Protocolos de aplicación
-- Arquitecturas cliente-servidor
-
-### Unidad 5: Técnicas de Programación Segura
-- Criptografía básica
-- Comunicaciones seguras
-- Autenticación y autorización
-- Buenas prácticas de seguridad
-
 ## 🛠️ Tecnologías Utilizadas
 
 - **Lenguaje**: Java
