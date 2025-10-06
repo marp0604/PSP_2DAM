@@ -1,4 +1,4 @@
-# 📘 Explicación Detallada: ProcessBuilder en Java
+# 📘 Explicación: ProcessBuilder en Java
 
 > **Autor:** Miguel Ángel Ramírez Pérez (marp0604)  
 > 
@@ -37,7 +37,7 @@ Runtime.getRuntime().exec("ls -la /home/usuario");
 
 ### Problemas de Runtime.exec()
 
-#### 1️⃣ **Parsing deficiente de argumentos**
+#### 1️⃣ **El paso de argumentos es deficiente**
 
 El sistema no divide correctamente los argumentos, especialmente si hay espacios en las rutas.
 
@@ -57,7 +57,7 @@ Si **NO lees** estos streams, los buffers internos se llenan y el proceso **se b
 
 #### 3️⃣ **Problemas de seguridad**
 
-Es más fácil introducir vulnerabilidades de inyección de comandos.
+Es más fácil introducir comandos erroneos.
 
 ---
 
@@ -100,11 +100,11 @@ ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c", "dir", "C:\\Users");
 
 ## 🎁 Ventajas de ProcessBuilder
 
-| Ventaja | Descripción |
-|---------|-------------|
-| **Separación clara** | Cada argumento es un `String` separado |
-| **Más seguro** | No se pueden inyectar comandos accidentalmente |
-| **Más claro** | Se ve exactamente qué argumentos se pasan |
+| Ventaja | Descripción                                      |
+|---------|--------------------------------------------------|
+| **Separación clara** | Cada argumento es un `String` separado           |
+| **Más seguro** | No se pueden introducir comandos accidentalmente |
+| **Más claro** | Se ve exactamente qué argumentos se pasan        |
 
 ---
 
