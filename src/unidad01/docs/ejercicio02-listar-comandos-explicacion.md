@@ -968,6 +968,5 @@ Este documento es material educativo para la asignatura de **Programación de Se
 
 ---
 
-**Autor:** Miguel Ángel Ramírez (marp0604)  
-**Última actualización:** 2025-10-06 14:13:54 UTC  
+**Autor:** Miguel Ángel Ramírez (marp0604)
 **Repositorio:** [PSP_2DAM](https://github.com/marp0604/PSP_2DAM)
