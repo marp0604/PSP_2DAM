@@ -153,7 +153,7 @@ processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
 
 **¿Qué hace `INHERIT`?**
 - La salida del proceso aparece **directamente** en tu consola
-- No necesitas leer manualmente con `BufferedReader`
+- No necesita leer manualmente con `BufferedReader`
 - Ideal para comandos simples donde solo quieres ver el resultado
 
 **Ventaja:**
@@ -303,19 +303,6 @@ Este ejemplo pone en práctica los conceptos de la sección **1.3 Programación 
 
 - [Documentación oficial de ProcessBuilder](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ProcessBuilder.html)
 - [Explicación completa de ProcessBuilder](processbuilder-explicacion.md)
-
----
-
-## ✅ Checklist de Comprensión
-
-Después de estudiar este ejemplo, deberías poder:
-
-- [ ] Detectar el sistema operativo desde Java
-- [ ] Crear un `ProcessBuilder` con argumentos separados
-- [ ] Usar `INHERIT` para ver la salida directamente
-- [ ] Ejecutar un proceso y esperar su finalización
-- [ ] Interpretar los códigos de salida
-- [ ] Manejar las excepciones `IOException` e `InterruptedException`
 
 ---
 
