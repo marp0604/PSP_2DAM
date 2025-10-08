@@ -14,8 +14,6 @@ public class Ej02_MiTarea implements Runnable {
     public static void main(String[] args) {
         Thread hilo = new Thread(new Ej02_MiTarea());
         hilo.start();
-
-
     }
 
 }
