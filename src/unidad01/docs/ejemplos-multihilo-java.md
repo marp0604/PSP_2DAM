@@ -25,7 +25,7 @@ La programación multihilo permite que una aplicación ejecute **varias tareas c
 1. **Implementar la interfaz `Runnable`** ⭐ (Recomendado)
 2. **Extender la clase `Thread`**
 
-Estos ejemplos demuestran ambas formas y explican cuándo usar cada una.
+Estos ejemplos explican cuándo usar cada una.
 
 ---
 
@@ -44,35 +44,16 @@ package unidad01.ejemplos;
  * ⚠️ ADVERTENCIA: Esta clase NO es thread-safe.
  * Si varios hilos llaman a incrementar() simultáneamente,
  * pueden ocurrir condiciones de carrera.
- * 
+ *
  * @author Miguel Angel Ramirez (marp0604)
- * @version 1.0
- * @since 2025-10-08
  */
 public class Contador {
     private int valor = 0;
-
-    /**
-     * Incrementa el valor del contador en 1.
-     * 
-     * ⚠️ Esta operación NO es atómica. La expresión valor++
-     * se descompone en 3 pasos:
-     * 1. Leer el valor actual
-     * 2. Sumarle 1
-     * 3. Escribir el nuevo valor
-     * 
-     * Si dos hilos ejecutan estos pasos simultáneamente,
-     * pueden perderse incrementos.
-     */
+    
     public void incrementar() {
         valor++;
     }
-    
-    /**
-     * Obtiene el valor actual del contador.
-     * 
-     * @return El valor actual
-     */
+
     public int getValor() {
         return valor;
     }
@@ -97,9 +78,9 @@ La operación `valor++` parece simple, pero **NO es atómica**:
 valor++;
 
 // Lo que realmente ocurre:
-int temp = valor;  // PASO 1: Leer
-temp = temp + 1;   // PASO 2: Incrementar
-valor = temp;      // PASO 3: Escribir
+int temp = valor;  // 1: Leer
+temp = temp + 1;   // 2: Incrementar
+valor = temp;      // 3: Escribir
 ```
 
 **Problema con múltiples hilos:**
@@ -165,8 +146,6 @@ package unidad01.ejemplos;
  * - Sigue el principio de composición sobre herencia
  * 
  * @author Miguel Angel Ramirez (marp0604)
- * @version 1.0
- * @since 2025-10-08
  */
 public class Ej02_MiTarea implements Runnable {
     
@@ -186,13 +165,13 @@ public class Ej02_MiTarea implements Runnable {
      * Método principal para probar la clase.
      */
     public static void main(String[] args) {
-        // Crear una instancia de la tarea
+        // Crea una instancia de la tarea
         Ej02_MiTarea tarea = new Ej02_MiTarea();
         
-        // Crear un hilo pasándole la tarea
+        // Crea un hilo pasándole la tarea
         Thread hilo = new Thread(tarea);
         
-        // Iniciar el hilo (esto llamará al método run() en un nuevo hilo)
+        // Inicia el hilo (esto llamará al método run() en un nuevo hilo)
         hilo.start();
         
         // El programa principal continúa ejecutándose
@@ -251,8 +230,8 @@ Thread hilo = new Thread(tarea);
 ```
 
 **¿Qué ocurre?**
-1. Creas una instancia de tu clase que implementa `Runnable`
-2. Pasas esa instancia al constructor de `Thread`
+1. Crea una instancia de tu clase que implementa `Runnable`
+2. Pasa esa instancia al constructor de `Thread`
 3. El hilo sabe que debe ejecutar el método `run()` de esa tarea
 
 ---
@@ -411,8 +390,6 @@ package unidad01.ejemplos;
  * - Acceso directo a métodos de Thread (getName(), sleep(), etc.)
  * 
  * @author Miguel Angel Ramirez (marp0604)
- * @version 1.0
- * @since 2025-10-08
  */
 public class Ej03_MiHilo extends Thread {
     
@@ -432,10 +409,10 @@ public class Ej03_MiHilo extends Thread {
      * Método principal para probar la clase.
      */
     public static void main(String[] args) {
-        // Crear una instancia de nuestro hilo
+        // Crea una instancia de nuestro hilo
         Ej03_MiHilo hilo = new Ej03_MiHilo();
         
-        // Iniciar el hilo
+        // Inicia el hilo
         hilo.start();
         
         // El programa principal continúa ejecutándose
@@ -454,8 +431,8 @@ public class Ej03_MiHilo extends Thread {
 
 **¿Qué significa?**
 - Tu clase **ES un Thread** (herencia directa)
-- Heredas todos los métodos de `Thread`
-- No puedes heredar de otra clase
+- Hereda todos los métodos de `Thread`
+- No puede heredar de otra clase
 
 ---
 
@@ -470,7 +447,7 @@ public void run() {
 
 **Diferencias con Runnable:**
 - `getName()` se llama directamente (no necesitas `Thread.currentThread()`)
-- Tienes acceso a todos los métodos de `Thread`: `sleep()`, `interrupt()`, etc.
+- Tiene acceso a todos los métodos de `Thread`: `sleep()`, `interrupt()`, etc.
 
 ---
 
@@ -482,7 +459,7 @@ hilo.start();
 ```
 
 **Más directo:**
-- No necesitas crear un objeto `Thread` separado
+- No necesita crear un objeto `Thread` separado
 - El objeto **es** el hilo
 
 ---
@@ -636,7 +613,7 @@ Hilo-B ha terminado ✅
 
 ```java
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// OPCIÓN 1: Implementar Runnable (Recomendado)
+// 1: Implementa Runnable (Recomendado)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 public class MiTarea implements Runnable {
     @Override
@@ -650,7 +627,7 @@ Thread hilo = new Thread(new MiTarea());
 hilo.start();
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// OPCIÓN 2: Extender Thread
+// 2: Extender Thread
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 public class MiHilo extends Thread {
     @Override
@@ -670,14 +647,14 @@ hilo.start();
 
 #### **Usa Runnable si:**
 - ✅ Tu clase necesita heredar de otra clase
-- ✅ Quieres separar la lógica de la tarea del mecanismo de hilos
-- ✅ Necesitas reutilizar la misma tarea en múltiples hilos
-- ✅ Sigues el principio de "composición sobre herencia"
+- ✅ Quiere separar la lógica de la tarea del mecanismo de hilos
+- ✅ Necesita reutilizar la misma tarea en múltiples hilos
+- ✅ Sigue el principio de "composición sobre herencia"
 
 #### **Usa Thread si:**
-- ✅ No necesitas heredar de otra clase
-- ✅ Quieres código más directo y simple
-- ✅ Necesitas acceso frecuente a métodos de Thread
+- ✅ No necesita heredar de otra clase
+- ✅ Quiere código más directo y simple
+- ✅ Necesita acceso frecuente a métodos de Thread
 
 ---
 
@@ -748,59 +725,11 @@ String nombre = Thread.currentThread().getName();
 
 ---
 
-## 🧪 Ejercicios Propuestos
-
-### **Ejercicio 1: Contador con Runnable**
-
-Crea una clase que implemente `Runnable` y que cuente del 1 al 10 con pausas de 500ms entre cada número.
-
-**Pista:**
-```java
-Thread.sleep(500); // Pausa de 500ms
-```
-
----
-
-### **Ejercicio 2: Comparación de tiempos**
-
-Crea dos programas que calculen la suma de los primeros 1,000,000 números:
-1. Uno sin hilos (secuencial)
-2. Otro con 2 hilos (cada uno suma 500,000 números)
-
-Compara los tiempos de ejecución.
-
----
-
-### **Ejercicio 3: Problema del Contador**
-
-Usa la clase `Contador` y crea 10 hilos que incrementen el contador 1000 veces cada uno.
-
-**Preguntas:**
-1. ¿Cuál es el valor esperado final?
-2. ¿Cuál es el valor real obtenido?
-3. ¿Por qué no coinciden?
-
----
-
 ## 📚 Para Profundizar
 
 - [Documentación oficial de Thread](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html)
 - [Documentación oficial de Runnable](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html)
 - [Java Concurrency Tutorial](https://docs.oracle.com/javase/tutorial/essential/concurrency/)
-
----
-
-## ✅ Checklist de Comprensión
-
-Después de estudiar estos ejemplos, deberías poder:
-
-- [ ] Explicar la diferencia entre `Runnable` y `Thread`
-- [ ] Crear hilos usando ambos métodos
-- [ ] Entender por qué `Runnable` es preferible
-- [ ] Usar correctamente `start()` en lugar de `run()`
-- [ ] Explicar qué es una operación no atómica
-- [ ] Identificar condiciones de carrera potenciales
-- [ ] Obtener el nombre del hilo actual
 
 ---
 
