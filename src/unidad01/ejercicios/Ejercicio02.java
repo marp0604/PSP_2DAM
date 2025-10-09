@@ -88,9 +88,7 @@ public class Ejercicio02 {
         System.out.println(directorio.getAbsolutePath() + "/");
 
         // Lee y muestra la salida línea por línea
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(proceso.getInputStream()))) {
-
+        try (BufferedReader reader = new BufferedReader( new InputStreamReader(proceso.getInputStream()))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
                 System.out.println(linea);
