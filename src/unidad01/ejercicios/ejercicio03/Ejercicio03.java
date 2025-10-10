@@ -114,6 +114,7 @@ public class Ejercicio03 {
 
         System.out.println();
         System.out.println("Resultado de la ejecución:");
+        System.out.println("---------------------------------------");
 
         if (codigoSalida == 0) {
             System.out.println("Script ejecutado correctamente");
