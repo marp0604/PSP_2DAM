@@ -1,4 +1,4 @@
-package unidad01.ejercicios;
+package unidad01.ejercicios.ejercicio04;
 
 import java.io.BufferedReader;
 import java.io.File;
