@@ -1,4 +1,5 @@
-package unidad01.ejercicios;
+package unidad01.ejercicios.ejercicio03;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,34 +7,37 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 /**
- * Ejecuta un script de Bash desde Java.
- * El script debe llamarse "saluda.sh" y estar en el directorio introducido.
- *
- * @author Miguel Angel Ramirez (marp0604)
+ * @author Miguel Angel Ramirez
  */
-public class Ejercicio03 {
+public class Ejercicio03V2 {
 
-    /**
-     * Nombre del script de Bash a ejecutar.
-     */
     private static final String NOMBRE_SCRIPT = "saluda.sh";
 
-    /**
-     * Método principal. Requiere 2 argumentos: directorio del script y nombre.
-     *
-     * @param args [0] = directorio del script, [1] = nombre para el script
-     */
     public static void main(String[] args) {
-        if (args.length != 2){
-            System.out.println("Error. Número incorrecto de argumentos.");
-        }
-
-        String directorioScript = args[0];
-        String nombre = args[1];
+        Scanner sc = new Scanner(System.in);
 
         try{
+            System.out.print("Introduce la ruta del directorio donde está el script: ");
+            String directorioScript = sc.nextLine().trim();
+
+            if (directorioScript.isEmpty()) {
+                System.err.println("Error: La ruta del directorio no puede estar vacía.");
+                System.exit(1);
+            }
+
+            System.out.print("Introduce tu nombre: ");
+            String nombre = sc.nextLine().trim();
+
+            if (nombre.isEmpty()) {
+                System.err.println("Error: El nombre no puede estar vacío.");
+                System.exit(1);
+            }
+
+            System.out.println();
+
             lanzarScript(directorioScript, nombre);
         } catch (IllegalArgumentException e){
             System.err.println("Error. " + e.getMessage());
@@ -48,19 +52,9 @@ public class Ejercicio03 {
         }
     }
 
-    /**
-     * Valída y ejecuta el script de Bash.
-     *
-     * @param directorioScript Ruta del directorio donde está el script
-     * @param nombre Nombre a pasar al script como parámetro
-     * @throws IllegalArgumentException Si el directorio o script no son válidos
-     * @throws IOException Si hay error de E/S al ejecutar el script
-     * @throws InterruptedException Si el proceso es interrumpido
-     */
     public static void lanzarScript(String directorioScript, String nombre)
             throws IllegalArgumentException, IOException, InterruptedException {
 
-        // Verifica el directorio
         File directorio = new File(directorioScript);
 
         if (!directorio.exists()){
@@ -71,11 +65,9 @@ public class Ejercicio03 {
             throw new IllegalArgumentException(directorioScript + " no es un directorio valido");
         }
 
-        // Construye la ruta del script
         Path pathScript = Paths.get(directorioScript, NOMBRE_SCRIPT);
         File archivoScript = pathScript.toFile();
 
-        // Valida el script
         if (!archivoScript.exists()) {
             throw new IllegalArgumentException("El script " + NOMBRE_SCRIPT + " no existe en el directorio " + directorioScript);
         }
@@ -90,14 +82,14 @@ public class Ejercicio03 {
             throw new IllegalArgumentException("El script " + NOMBRE_SCRIPT + " no tiene permisos de ejecución");
         }
 
-        // Configura y ejecuta ProcessBuilder
         ProcessBuilder processBuilder = new ProcessBuilder(pathScript.toAbsolutePath().toString(), nombre);
+
         processBuilder.directory(directorio);
+
         processBuilder.redirectErrorStream(true);
 
         Process proceso = processBuilder.start();
 
-        // Captura la salida
         System.out.println("Salida del script: ");
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(proceso.getInputStream()))){
@@ -109,7 +101,6 @@ public class Ejercicio03 {
 
         System.out.println("---------------------------------------");
 
-        // Espera y muestra el código de salida
         int codigoSalida = proceso.waitFor();
 
         System.out.println();

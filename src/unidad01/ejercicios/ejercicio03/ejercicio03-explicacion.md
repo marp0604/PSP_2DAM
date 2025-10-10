@@ -538,7 +538,7 @@ javac unidad01/ejercicios/Ejercicio03.java
 
 **Ejecutar:**
 ```bash
-java unidad01.ejercicios.Ejercicio03 /home/marp0604/scripts Miguel
+java unidad01.ejercicios.ejercicio03.Ejercicio03 /home/marp0604/scripts Miguel
 ```
 
 **Salida esperada:**
@@ -560,7 +560,7 @@ Script ejecutado correctamente
 
 **Ejecutar:**
 ```bash
-java unidad01.ejercicios.Ejercicio03
+java unidad01.ejercicios.ejercicio03.Ejercicio03
 ```
 
 **Salida esperada:**
@@ -574,7 +574,7 @@ Error. Número incorrecto de argumentos.
 
 **Ejecutar:**
 ```bash
-java unidad01.ejercicios.Ejercicio03 /home/marp0604/scripts
+java unidad01.ejercicios.ejercicio03.Ejercicio03 /home/marp0604/scripts
 ```
 
 **Salida esperada:**
@@ -588,7 +588,7 @@ Error. Número incorrecto de argumentos.
 
 **Ejecutar:**
 ```bash
-java unidad01.ejercicios.Ejercicio03 /directorio/inexistente Miguel
+java unidad01.ejercicios.ejercicio03.Ejercicio03 /directorio/inexistente Miguel
 ```
 
 **Salida esperada:**
@@ -602,7 +602,7 @@ Error. El directorio: /directorio/inexistente no existe.
 
 **Ejecutar:**
 ```bash
-java unidad01.ejercicios.Ejercicio03 /home/marp0604 Miguel
+java unidad01.ejercicios.ejercicio03.Ejercicio03 /home/marp0604 Miguel
 ```
 
 **Salida esperada:**
@@ -621,7 +621,7 @@ chmod -x ~/scripts/saluda.sh
 
 **Ejecutar:**
 ```bash
-java unidad01.ejercicios.Ejercicio03 /home/marp0604/scripts Miguel
+java unidad01.ejercicios.ejercicio03.Ejercicio03 /home/marp0604/scripts Miguel
 ```
 
 **Salida esperada:**
