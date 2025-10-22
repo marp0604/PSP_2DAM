@@ -31,7 +31,7 @@ public class Main01 {
         int valorEsperado = NUM_HILOS * INCREMENTO_POR_HILO;
         int valorObtenido = contador.getValor();
 
-        System.out.println("---- Main01 ----");
+        System.out.println("---- Main01 Contador01 ----");
         System.out.println("Valor esperado: " + valorEsperado);
         System.out.println("Valor obtenido: " + valorObtenido);
 

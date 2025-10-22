@@ -1,16 +1,18 @@
-package unidad02.ejercicios.ejercicio01.contador01;
+package unidad02.ejercicios.ejercicio01.contador02;
 
+
+import unidad02.ejercicios.ejercicio01.contador01.Contador01;
 
 /**
  * @author Miguel Angel Ramirez
  */
-public class Main02 {
+public class Main {
 
     private static final int NUM_HILOS = 100;
     private static final int INCREMENTO_POR_HILO = 1000;
 
     public static void main(String[] args) throws InterruptedException {
-        Contador01 contador = new Contador01();
+        Contador02 contador = new Contador02();
         Thread[] hilos = new Thread[NUM_HILOS];
 
         for (int i = 0; i < NUM_HILOS; i++){
@@ -30,7 +32,7 @@ public class Main02 {
         int valorEsperado = NUM_HILOS * INCREMENTO_POR_HILO;
         int valorObtenido = contador.getValor();
 
-        System.out.println("---- Main02 Contador01 ----");
+        System.out.println("---- Main - Contador02 ----");
         System.out.println("Valor esperado: " + valorEsperado);
         System.out.println("Valor obtenido: " + valorObtenido);
 
