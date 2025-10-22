@@ -1,8 +1,5 @@
 package unidad02.ejercicios.ejercicio01.contador02;
 
-
-import unidad02.ejercicios.ejercicio01.contador01.Contador01;
-
 /**
  * @author Miguel Angel Ramirez
  */

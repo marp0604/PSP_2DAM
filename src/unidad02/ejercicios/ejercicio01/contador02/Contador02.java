@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Miguel Angel Ramirez
  */
 public class Contador02 {
+
     private AtomicInteger valor = new AtomicInteger(0);
 
     /**
