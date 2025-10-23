@@ -39,6 +39,5 @@ public class Main01 {
             System.out.println("Se ha detectado una condición de carrera");
             System.out.println("Se han perdido " + (valorEsperado - valorObtenido) + " incrementos.");
         }
-
     }
 }
