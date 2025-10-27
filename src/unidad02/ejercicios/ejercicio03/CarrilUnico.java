@@ -16,5 +16,5 @@ public interface CarrilUnico {
      * Sale del carril. Debe notificar a los hilos que espera
      * @param direccion La dirección del vehículo que sale
      */
-    void sali(Direccion direccion);
+    void salir(Direccion direccion);
 }
