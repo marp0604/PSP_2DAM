@@ -31,15 +31,15 @@ public class Vehiculo implements Runnable{
     @Override
     public void run() {
         try{
-            System.out.println(nombreVehiculo + " circulando hacia la " + direccion + " ha llegado y quiere entrar");
+            System.out.println("---- " + nombreVehiculo + " ---- circulando hacia la " + direccion + " ha llegado y quiere entrar");
             carril.entrar(direccion);
-            System.out.println(nombreVehiculo + " circulando hacia la " + direccion + " está cruzando el carril");
+            System.out.println("---- " + nombreVehiculo + " ---- circulando hacia la " + direccion + " está cruzando el carril");
 
             Thread.sleep(1000 + random.nextInt(2000));
             carril.salir(direccion);
-            System.out.println(nombreVehiculo + " circulando hacia la " + direccion + " sale del carril");
+            System.out.println("---- " + nombreVehiculo + " ---- circulando hacia la " + direccion + " sale del carril");
         } catch (InterruptedException e){
-            System.err.println(nombreVehiculo + " circulando hacia la " + direccion + " ha sido interrumpido");
+            System.err.println("---- " + nombreVehiculo + " ---- circulando hacia la " + direccion + " ha sido interrumpido");
             Thread.currentThread().interrupt();
         }
     }

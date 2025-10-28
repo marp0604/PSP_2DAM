@@ -7,6 +7,9 @@ import java.util.ArrayList;
  */
 
 public class Main {
+    private static final int TOTAL_VEHICULOS = 5;
+    private static final int PAUSA = 1000;
+
     public static void main(String[] args) throws InterruptedException{
         System.out.println("--- TRAFICO ---");
 
@@ -15,10 +18,9 @@ public class Main {
 
         // 2. Se crea una lista para los hilos
         ArrayList<Thread> vehiculos = new ArrayList<>();
-        int totalVehiculos = 10;
 
         // 3. Se crean los vehículos e hilos
-        for(int i = 0; i < totalVehiculos; i++){
+        for(int i = 0; i < TOTAL_VEHICULOS; i++){
             Direccion direccion = (i % 2 == 0) ? Direccion.IZDA : Direccion.DCHA;
             String nombre = "Coche-" + (i + 1);
 
@@ -28,12 +30,14 @@ public class Main {
         }
 
         // 4. Pausa de 1 segundo
-        Thread.sleep(1000);
+        Thread.sleep(PAUSA);
 
         // 5. Se inician los hilos
-        System.out.println("Total de Vehículos: " + totalVehiculos);
+        System.out.println("Total de Vehículos: " + TOTAL_VEHICULOS);
+
         for (Thread thread : vehiculos){
             thread.start();
+            Thread.sleep(50);
         }
 
         // 6. Espera a que todos los hilos terminen

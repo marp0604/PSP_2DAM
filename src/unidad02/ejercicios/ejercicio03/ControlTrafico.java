@@ -22,19 +22,22 @@ public class ControlTrafico implements CarrilUnico{
      */
     @Override
     public synchronized void entrar(Direccion direccion) throws InterruptedException {
-        // Mientras haya coches y vayan en dirección contraria, se espera.
-        while(cochesEnCarril > 0 && direccionActual != direccion){
-            System.out.println("Espera. " + Thread.currentThread().getName() + ". va " + direccion
+
+        while(viaOcupada && direccionActual != direccion){
+            System.out.println("--- Espera: " + Thread.currentThread().getName() + ". va " + direccion
                                + ". Carril ocupado por coches hacia " + direccionActual);
             wait();
         }
 
-        cochesEnCarril++;
-        viaOcupada = true;
-        direccionActual = direccion;
+        if (cochesEnCarril == 0) {
+            direccionActual = direccion;
+            viaOcupada = true;
+        }
 
-        System.out.println("Entra: " + Thread.currentThread().getName() + ". va " + direccion);
-        System.out.println("Estado: " + cochesEnCarril + " coches || Dirección: " + direccionActual);
+        cochesEnCarril++;
+
+        System.out.println("> > > - Entra: " + Thread.currentThread().getName() + ". va " + direccion);
+        System.out.println("--- Estado: " + cochesEnCarril + " coches || Dirección: " + direccionActual);
     }
 
     /**
@@ -47,13 +50,13 @@ public class ControlTrafico implements CarrilUnico{
     @Override
     public synchronized void salir(Direccion direccion) {
         cochesEnCarril--;
-        System.out.println("Sale. " + Thread.currentThread().getName() +
+        System.out.println("< < < - Sale. " + Thread.currentThread().getName() +
                            " iba " + direccion + ". Quedan " + cochesEnCarril);
 
         if (cochesEnCarril == 0){
             direccionActual = Direccion.NINGUNA;
             viaOcupada = false;
-            System.out.println("Estado: Carril Libre");
+            System.out.println("--- Estado: Carril Libre");
             notifyAll();
         }
     }
