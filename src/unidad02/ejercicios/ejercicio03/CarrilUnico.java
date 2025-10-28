@@ -2,6 +2,9 @@ package unidad02.ejercicios.ejercicio03;
 
 
 /**
+ * Cualquier clase que implemente esta interfaz
+ * debe gestionar los métodos entrar y salir de forma sincronizada.
+ *
  * @author Miguel Angel Ramirez
  */
 public interface CarrilUnico {

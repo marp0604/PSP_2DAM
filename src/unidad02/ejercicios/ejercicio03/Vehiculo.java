@@ -1,9 +1,9 @@
 package unidad02.ejercicios.ejercicio03;
 
-
 import java.util.Random;
 
 /**
+ * Representa un vehículo como un hilo.
  * @author Miguel Angel Ramirez
  */
 public class Vehiculo implements Runnable{
@@ -12,12 +12,22 @@ public class Vehiculo implements Runnable{
     private String nombreVehiculo;
     private Random random = new Random();
 
+    /**
+     * Constructor de la clase
+     * @param carril El monitor ControlTrafico compartido por todos los vehículos
+     * @param direccion La Direccion en la que se moverá el vehículo
+     * @param nombreVehiculo El nombre del vehículo
+     */
     public Vehiculo(ControlTrafico carril, Direccion direccion, String nombreVehiculo){
         this.carril = carril;
         this.direccion = direccion;
         this.nombreVehiculo = nombreVehiculo;
     }
 
+    /**
+     * Define el vehículo (hilo)
+     * El vehículo intenta entrar, cruza y luego sale
+     */
     @Override
     public void run() {
         try{
