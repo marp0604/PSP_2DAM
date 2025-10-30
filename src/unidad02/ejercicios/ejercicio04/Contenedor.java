@@ -1,6 +1,5 @@
 package unidad02.ejercicios.ejercicio04;
 
-
 /**
  * @author Miguel Angel Ramirez
  */
@@ -14,7 +13,7 @@ public class Contenedor {
     }
 
     public void llenar(Producto producto){
-        this.contenido = contenido;
+        this.contenido = producto;
     }
 
     public void vaciar(){

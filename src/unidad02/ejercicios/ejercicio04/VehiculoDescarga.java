@@ -1,12 +1,11 @@
 package unidad02.ejercicios.ejercicio04;
 
-
-import java.util.Random;
 import java.util.concurrent.Exchanger;
 
 /**
  * @author Miguel Angel Ramirez
  */
+
 public class VehiculoDescarga implements Runnable{
     private Exchanger<Contenedor> puntoIntercambio;
     private Contenedor miContenedor;
@@ -20,9 +19,5 @@ public class VehiculoDescarga implements Runnable{
 
     @Override
     public void run() {
-        try{
-            for (int i = 1; i <= this.numCiclos; i++){
-            }
-        } catch ()
     }
 }
