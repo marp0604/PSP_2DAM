@@ -46,7 +46,6 @@ public class Main {
             }
         }
 
-        System.out.println("\n--------------------------");
-        System.out.println("\nFIN.");
+        System.out.println("--------------------------");
     }
 }
